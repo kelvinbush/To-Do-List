@@ -5,9 +5,12 @@ export default class ToDoList {
     this.toDos = [];
   }
 
-  addToDo(index, description, completed) {
-    this.toDos.push(new ToDo(index, description, completed));
+  addToDo(description) {
+    const index = this.toDos.length;
+    const toDo = new ToDo(index, description, false);
+    this.toDos.push(toDo);
     this.#saveToDos();
+    this.renderToDos();
   }
 
   #addToDos(toDos) {
@@ -26,6 +29,7 @@ export default class ToDoList {
       toDo.index = index;
     });
     this.#saveToDos();
+    this.renderToDos();
   }
 
   updateToDo(id, description, completed) {
@@ -36,6 +40,7 @@ export default class ToDoList {
       return toDo;
     });
     this.#saveToDos();
+    this.renderToDos();
   }
 
   removeAllCompleted() {
@@ -44,6 +49,7 @@ export default class ToDoList {
       toDo.index = index;
     });
     this.#saveToDos();
+    this.renderToDos();
   }
 
   loadToDos() {
@@ -55,5 +61,14 @@ export default class ToDoList {
 
   #saveToDos() {
     localStorage.setItem('toDos', JSON.stringify(this.toDos));
+  }
+
+  renderToDos() {
+    return this.toDos.map((toDo) => `
+            <li>
+                <p class="todo">${toDo.description}</p>
+            </li>
+            <hr>
+    `).join('');
   }
 }

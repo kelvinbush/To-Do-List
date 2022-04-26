@@ -7,3 +7,6 @@ todoList.addToDo('Learn React');
 todoList.addToDo('Learn Node');
 todoList.addToDo('Learn Express');
 todoList.addToDo('Learn MongoDB');
+
+const todoListElement = document.querySelector('.todo-list');
+todoListElement.innerHTML = todoList.renderToDos();
