@@ -22,6 +22,9 @@ export default class ToDoList {
 
   removeToDo(id) {
     this.toDos = this.toDos.filter((toDo) => toDo.index !== id);
+    this.toDos.forEach((toDo, index) => {
+      toDo.index = index;
+    });
     this.#saveToDos();
   }
 
@@ -37,6 +40,9 @@ export default class ToDoList {
 
   removeAllCompleted() {
     this.toDos = this.toDos.filter((toDo) => toDo.completed === true);
+    this.toDos.forEach((toDo, index) => {
+      toDo.index = index;
+    });
     this.#saveToDos();
   }
 
