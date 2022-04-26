@@ -25,19 +25,24 @@ export default class ToDoList {
 
   removeToDo(id) {
     this.toDos = this.toDos.filter((toDo) => toDo.index !== id);
-    this.toDos.forEach((toDo, index) => {
-      toDo.index = index;
+    this.#rearrangeToDos();
+    this.#saveToDos();
+    this.renderToDos();
+  }
+
+  updateToDoCompleted(id) {
+    this.toDos.forEach((toDo) => {
+      if (toDo.index === id) {
+        toDo.completed = !toDo.completed;
+      }
     });
     this.#saveToDos();
     this.renderToDos();
   }
 
-  updateToDo(id, description, completed) {
-    this.toDos = this.toDos.map((toDo) => {
-      if (toDo.index === id) {
-        return new ToDo(id, description, completed);
-      }
-      return toDo;
+  #rearrangeToDos() {
+    this.toDos.forEach((toDo, index) => {
+      toDo.index = index;
     });
     this.#saveToDos();
     this.renderToDos();
@@ -45,9 +50,7 @@ export default class ToDoList {
 
   removeAllCompleted() {
     this.toDos = this.toDos.filter((toDo) => toDo.completed === true);
-    this.toDos.forEach((toDo, index) => {
-      toDo.index = index;
-    });
+    this.#rearrangeToDos();
     this.#saveToDos();
     this.renderToDos();
   }
@@ -69,6 +72,7 @@ export default class ToDoList {
                 <p class="todo">${toDo.description}</p>
             </li>
             <hr>
-    `).join('');
+    `)
+      .join('');
   }
 }
