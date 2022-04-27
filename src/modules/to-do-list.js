@@ -26,6 +26,7 @@ export default class ToDoList {
 
   updateDescription(index, description) {
     this.toDos[index].description = description;
+    this.toDos[index].completed = false;
     this.#saveToDos();
     this.renderToDos();
   }
@@ -38,11 +39,7 @@ export default class ToDoList {
   }
 
   updateToDoCompleted(id) {
-    this.toDos.forEach((toDo) => {
-      if (toDo.index === +id) {
-        toDo.completed = !toDo.completed;
-      }
-    });
+    this.toDos[id].completed = !this.toDos[id].completed;
     this.#saveToDos();
     this.renderToDos();
   }

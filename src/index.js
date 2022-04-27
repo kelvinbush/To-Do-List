@@ -39,6 +39,8 @@ const listenForEventsOnInputs = () => {
     inputs.forEach((input) => {
       input.addEventListener('change', (event) => {
         updateDescription(todoList, event.target.dataset.id, event.target.value);
+        todoListElement.innerHTML = todoList.renderToDos();
+        listenForEventsOnInputs();
       });
     });
   }
