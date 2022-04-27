@@ -3,9 +3,9 @@ import './style.css';
 import {
   addToList,
   removeFromList,
-  updateCompleted,
   updateDescription
 } from './modules/add-update-delete.js';
+import { updateCompleted } from './modules/list-status';
 
 const todoList = new ToDoList();
 todoList.loadToDos();
