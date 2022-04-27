@@ -39,7 +39,7 @@ export default class ToDoList {
 
   updateToDoCompleted(id) {
     this.toDos.forEach((toDo) => {
-      if (toDo.index === id) {
+      if (toDo.index === +id) {
         toDo.completed = !toDo.completed;
       }
     });

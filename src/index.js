@@ -1,6 +1,11 @@
 import ToDoList from './modules/to-do-list.js';
 import './style.css';
-import { addToList, removeFromList } from './modules/add-update-delete.js';
+import {
+  addToList,
+  removeFromList,
+  updateCompleted,
+  updateDescription
+} from './modules/add-update-delete.js';
 
 const todoList = new ToDoList();
 todoList.loadToDos();
@@ -33,7 +38,7 @@ const listenForEventsOnInputs = () => {
 
     inputs.forEach((input) => {
       input.addEventListener('change', (event) => {
-        todoList.updateDescription(event.target.dataset.id, event.target.value);
+        updateDescription(todoList, event.target.dataset.id, event.target.value);
       });
     });
   }
@@ -45,6 +50,12 @@ document.addEventListener('click', (event) => {
     todoListElement.innerHTML = todoList.renderToDos();
     listenForEventsOnInputs();
   }
+  if (event.target.classList.contains('check')) {
+    updateCompleted(todoList, event.target.dataset.id);
+    todoListElement.innerHTML = todoList.renderToDos();
+    listenForEventsOnInputs();
+  }
+
 });
 
 listenForEventsOnInputs();
