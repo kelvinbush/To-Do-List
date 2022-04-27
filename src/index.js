@@ -1,7 +1,7 @@
 import ToDoList from './modules/to-do-list.js';
 import './style.css';
 import { addToList, removeFromList, updateDescription } from './modules/add-update-delete.js';
-import { removeCompletedFromList, updateCompleted } from './modules/list-status';
+import { removeCompletedFromList, updateCompleted } from './modules/list-status.js';
 
 const todoList = new ToDoList();
 todoList.loadToDos();
@@ -59,7 +59,6 @@ document.addEventListener('click', (event) => {
     todoListElement.innerHTML = todoList.renderToDos();
     listenForEventsOnInputs();
   }
-
 });
 
 listenForEventsOnInputs();
