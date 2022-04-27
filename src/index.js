@@ -1,6 +1,7 @@
 import ToDoList from './modules/to-do-list.js';
 import './style.css';
-import { addToList, removeFromList } from './modules/add-update-delete.js';
+import { addToList, removeFromList, updateDescription } from './modules/add-update-delete.js';
+import { removeCompletedFromList, updateCompleted } from './modules/list-status.js';
 
 const todoList = new ToDoList();
 todoList.loadToDos();
@@ -33,7 +34,9 @@ const listenForEventsOnInputs = () => {
 
     inputs.forEach((input) => {
       input.addEventListener('change', (event) => {
-        todoList.updateDescription(event.target.dataset.id, event.target.value);
+        updateDescription(todoList, event.target.dataset.id, event.target.value);
+        todoListElement.innerHTML = todoList.renderToDos();
+        listenForEventsOnInputs();
       });
     });
   }
@@ -42,6 +45,17 @@ const listenForEventsOnInputs = () => {
 document.addEventListener('click', (event) => {
   if (event.target.classList.contains('fa-trash-can')) {
     removeFromList(todoList, event.target.dataset.id);
+    todoListElement.innerHTML = todoList.renderToDos();
+    listenForEventsOnInputs();
+  }
+  if (event.target.classList.contains('check')) {
+    updateCompleted(todoList, event.target.dataset.id);
+    todoListElement.innerHTML = todoList.renderToDos();
+    listenForEventsOnInputs();
+  }
+
+  if (event.target.classList.contains('btn')) {
+    removeCompletedFromList(todoList);
     todoListElement.innerHTML = todoList.renderToDos();
     listenForEventsOnInputs();
   }
