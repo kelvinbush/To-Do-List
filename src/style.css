@@ -55,48 +55,41 @@ input {
   display: flex;
 }
 
-li {
+.container {
   list-style: none;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
 }
 
 .todo {
   padding: 13px 20px;
-  width: 100%;
   display: flex;
+  background-color: inherit;
   align-items: center;
 }
 
-.todo::before {
-  content: url("images/check_box_outline_blank.svg");
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  align-self: flex-start;
-  margin-right: 20px;
-  position: relative;
-  bottom: 4px;
+.fa {
+  cursor: pointer;
 }
 
-.todo::after {
-  content: url("images/ellipsis-v.svg");
-  object-fit: contain;
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  align-self: flex-end;
-  margin-left: auto;
-  position: relative;
-  bottom: 4px;
+.fa-check {
+  color: #4caf50;
 }
 
-.completed {
-  text-decoration: line-through;
-  font-weight: 100;
-  font-style: italic;
+.dark {
+  background-color: bisque;
+  color: #333;
 }
 
-.completed::before {
-  content: url("images/check.svg");
+.fa-trash-can:hover {
+  color: #333;
+  cursor: pointer;
+}
+
+.fa-ellipsis-vertical {
+  cursor: grab;
+  margin-left: 20px;
 }
 
 .btn {
