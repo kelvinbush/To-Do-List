@@ -62,11 +62,6 @@ input {
   padding: 0 20px;
 }
 
-/*.container .fa-trash-can {*/
-/*  opacity: 0;*/
-/*  z-index: -20;*/
-/*}*/
-
 .todo {
   padding: 13px 20px;
   display: flex;
@@ -87,21 +82,10 @@ input {
   color: #333;
 }
 
-/*.dark .fa-trash-can {*/
-/*  opacity: 1;*/
-/*  z-index: 1;*/
-/*  color: grey;*/
-/*}*/
-
 .fa-trash-can:hover {
   color: #333;
   cursor: pointer;
 }
-
-/*.dark .fa-ellipsis-vertical {*/
-/*  opacity: 0;*/
-/*  z-index: -20;*/
-/*}*/
 
 .fa-ellipsis-vertical {
   cursor: grab;

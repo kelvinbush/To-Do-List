@@ -45,7 +45,6 @@ document.addEventListener('click', (event) => {
     todoListElement.innerHTML = todoList.renderToDos();
     listenForEventsOnInputs();
   }
-
 });
 
 listenForEventsOnInputs();
