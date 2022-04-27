@@ -53,7 +53,7 @@ export default class ToDoList {
   }
 
   removeAllCompleted() {
-    this.toDos = this.toDos.filter((toDo) => toDo.completed === true);
+    this.toDos = this.toDos.filter((toDo) => toDo.completed === false);
     this.#rearrangeToDos();
     this.#saveToDos();
     this.renderToDos();
