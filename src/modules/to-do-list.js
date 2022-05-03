@@ -6,7 +6,7 @@ export default class ToDoList {
   }
 
   addToDo(description) {
-    const index = this.toDos.length;
+    const index = this.toDos.length + 1;
     const toDo = new ToDo(index, description, false);
     this.toDos.push(toDo);
     this.#saveToDos();
@@ -25,8 +25,8 @@ export default class ToDoList {
   }
 
   updateDescription(index, description) {
-    this.toDos[index].description = description;
-    this.toDos[index].completed = false;
+    this.toDos[index - 1].description = description;
+    this.toDos[index - 1].completed = false;
     this.#saveToDos();
     this.renderToDos();
   }
@@ -39,14 +39,14 @@ export default class ToDoList {
   }
 
   updateToDoCompleted(id) {
-    this.toDos[id].completed = !this.toDos[id].completed;
+    this.toDos[id - 1].completed = !this.toDos[id - 1].completed;
     this.#saveToDos();
     this.renderToDos();
   }
 
   #rearrangeToDos() {
     this.toDos.forEach((toDo, index) => {
-      toDo.index = index;
+      toDo.index = index + 1;
     });
     this.#saveToDos();
     this.renderToDos();
