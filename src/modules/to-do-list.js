@@ -72,11 +72,11 @@ export default class ToDoList {
 
   renderToDos() {
     return this.toDos.map((toDo) => `
-            <div class="container">
+            <li class="container">
                 <i data-id=${toDo.index} class="check fa ${toDo.completed ? 'fa-solid fa-check' : 'fa-regular fa-square'}"></i>
                 <input data-id=${toDo.index} class="todo ${toDo.completed ? 'complete' : ''}" value="${toDo.description}">
                 <i class="fas fa-trash-can" data-id=${toDo.index}></i>
-            </div>
+            </li>
             <hr>
     `)
       .join('');
