@@ -45,6 +45,11 @@ To get a local copy up and running follow these simple example steps.
 - Twitter: [@kelvin_bush_](https://twitter.com/kelvin_bush_)
 - LinkedIn: [LinkedIn](https://www.linkedin.com/in/kelvin-wachiye-04b469173/)
 
+👤 **Lusindiso**
+- GitHub: [@Lusindiso](https://github.com/Lusindiso)
+- Twitter: [@LusindisoNt](https://twitter.com/LusindisoNt)
+- LinkedIn: [LinkedIn](https://www.linkedin.com/in/lusindisontanjana/)
+
 
 ## 🤝 Contributing
 Contributions, issues, and feature requests are welcome!
