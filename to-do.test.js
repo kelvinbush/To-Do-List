@@ -38,4 +38,15 @@ describe('ToDoList', () => {
     expect(document.querySelectorAll('#to-do-list .container')[0].children[0].classList.contains('fa-check'))
       .toBe(true);
   });
+
+  test('clearCompleted', () => {
+    toDoList.addToDo('task1');
+    toDoList.addToDo('task2');
+    toDoList.addToDo('task3');
+    toDoList.updateToDoCompleted(1);
+    toDoList.updateToDoCompleted(2);
+    toDoList.removeAllCompleted();
+    document.querySelector('#to-do-list').innerHTML = toDoList.renderToDos();
+    expect(document.querySelectorAll('#to-do-list .container').length).toBe(1);
+  });
 });
